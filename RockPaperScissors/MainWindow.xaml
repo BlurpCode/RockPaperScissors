@@ -50,7 +50,7 @@
         <Button x:Name="btnRock" Grid.Column="0" Style="{StaticResource buttonStyle}" Click="btnRock_Click">Rock</Button>
         <Button x:Name="btnPaper" Grid.Column="1" Style="{StaticResource buttonStyle}" Click="btnPaper_Click">Paper</Button>
         <Button x:Name="btnScissors" Grid.Column="2" Style="{StaticResource buttonStyle}" Click="btnScissors_Click">Scissors</Button>
-        <TextBlock Name="tbResults" Grid.Column="1" Grid.Row="2" Foreground="#f2ebeb" FontSize="15" TextAlignment="Center"></TextBlock>
+        <TextBlock Name="tbResults" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Foreground="#f2ebeb" FontSize="15"></TextBlock>
         <Button Name="btnPlay" Grid.Column="1" Grid.Row="3" Style="{StaticResource buttonStyle}" Margin="20" Visibility="Hidden" Click="btnPlay_Click">Play Again</Button>
     </Grid>
 </Window>

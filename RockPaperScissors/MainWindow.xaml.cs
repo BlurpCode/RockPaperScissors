@@ -30,23 +30,29 @@ namespace RockPaperScissors
         private void btnRock_Click(object sender, RoutedEventArgs e)
         {
             userChoice = "Rock";
+            determineResult();
         }
 
         private void btnPaper_Click(object sender, RoutedEventArgs e)
         {
             userChoice = "Paper";
+            determineResult();
         }
 
         private void btnScissors_Click(object sender, RoutedEventArgs e)
         {
             userChoice = "Scissors";
+            determineResult();
         }
 
+        //Calculate the results
         private void determineResult() {
             computerSelection();
             if (userChoice == computerChoice)
             {
                 //Tie
+                tbResults.Text = "Tie. You both selected " + userChoice;
+                btnPlay.Visibility = Visibility.Visible;
             }
             else
             {
@@ -56,36 +62,43 @@ namespace RockPaperScissors
                         if (userChoice == "Paper")
                         {
                             //User Wins
+                            printResult("User", "Computer");
                         }
                         else
                         {
                             //User Loses
+                            printResult("Computer", "User");
                         }
                         break;
                     case "Paper":
                         if (userChoice == "Scissors")
                         {
                             //User Wins
+                            printResult("User", "Computer");
                         }
                         else
                         {
                             //User Loses
+                            printResult("Computer", "User");
                         }
                         break;
                     case "Scissors":
                         if (userChoice == "Rock")
                         {
                             //User Wins
+                            printResult("User", "Computer");
                         }
                         else
                         {
                             //User Loses
+                            printResult("Computer", "User");
                         }
                         break;
                 }
             }
         }
 
+        //Uses a random number generator to select either rock, paper or scissors
         private void computerSelection() {
             Random rand = new Random();
             int randNum = rand.Next(1, 3);
@@ -104,9 +117,17 @@ namespace RockPaperScissors
             }
         }
 
+        //Prints the result on Screen
+        private void printResult(string winner, string loser) {
+            btnPlay.Visibility = Visibility.Visible;
+            tbResults.Text = winner+" wins. You threw "+userChoice+" and the computer threw "+computerChoice;
+        }
+
+        //Function to let the player Play again
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-
+            btnPlay.Visibility = Visibility.Hidden;
+            tbResults.Text = "";
         }
     }
 }
